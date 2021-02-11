@@ -1,0 +1,25 @@
+.contact-links {
+  @extend %unmarked-list;
+
+  a {
+    @extend %header-a;
+    transition: color $trans-duration $trans-cubic;
+
+    @media screen and (max-width: 1199px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  li {
+    &:not(:last-child) {
+      @media screen and (max-width: 1199px) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.contact-icon {
+  margin-right: 10px;
+}

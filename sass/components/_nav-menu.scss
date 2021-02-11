@@ -1,0 +1,119 @@
+.header-links-wrapper {
+  @media screen and (max-width: 767px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $bg-c-main;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08),
+      0px 1px 3px rgba(0, 0, 0, 0.16);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 500ms $trans-cubic, opacity 150ms $trans-cubic 250ms;
+
+    &.is-open {
+      transform: translateY(100%);
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+}
+
+.header-anim-block {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $bg-c-main;
+  border-bottom: 1px solid $bg-c-border;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.navigation {
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 40px;
+  }
+}
+
+.nav-menu {
+  @extend %unmarked-list;
+
+  flex-direction: column;
+  align-items: center;
+
+  li {
+    position: relative;
+  }
+
+  a {
+    @extend %header-a;
+    color: $txt-c-secondary;
+    transition: color $trans-duration $trans-cubic;
+  }
+
+  .current {
+    color: $txt-c-accent;
+
+    &::after {
+      content: '';
+      background-color: $bg-c-accent;
+      height: 4px;
+      width: 100%;
+      border-radius: 2px;
+      display: block;
+      position: absolute;
+      bottom: 10px;
+
+      @media screen and (min-width: 768px) {
+        bottom: -1px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+
+    li:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+}
+
+.contact-links {
+  flex-direction: column;
+  margin-left: auto;
+
+  @media screen and (max-width: 767px) {
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
+
+    li:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+}
+
+// .contact-links li:not(:last-child),
+// .nav-menu li:not(:last-child) {
+//   margin-right: 50px;
+// }
